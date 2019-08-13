@@ -1,0 +1,363 @@
+.pg-doctor-manage {
+  margin-top: 50px;
+  & > .title {
+    margin-bottom: 40px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+  }
+}
+
+.co-patient-form {
+  margin: auto;
+  width: 960px;
+  font-size: 0;
+  text-align: left;
+
+  * {
+    font-size: 18px;
+  }
+
+  button {
+    margin-left: 30px;
+    padding: 0 3px;
+    height: 26px;
+    border: none;
+    cursor: pointer;
+  }
+
+  label {
+    margin: 0;
+  }
+
+  .label {
+    display: inline-block;
+    width: 55px;
+  }
+  .long-label {
+    display: inline-block;
+    width: 90px;
+  }
+  .short-label {
+    margin: 0 20px 0 10px;
+    display: inline-block;
+    width: 20px;
+  }
+
+  input {
+    margin-right: 33px;
+    width: 140px;
+    background: none;
+  }
+
+  .inline-block {
+    display: inline-block;
+  }
+  select {
+    margin-right: 33px;
+    width: 146px;
+  }
+
+  .long_input {
+    width: 350px;
+  }
+  .short_input {
+    margin-right: 0;
+    width: 60px;
+  }
+  .button {
+    width: 80px;
+    background-color: #f6f6f6;
+  }
+  .search-button {
+    padding-right: 30px;
+    background: url("./../images/search.png") right center no-repeat;
+    background-size: 26px;
+    background-color: #f6f6f6;
+  }
+  .patient_serial {
+    display: inline-block;
+    width: 240px;
+    word-break: keep-all;
+  }
+}
+
+.diseaseCasecader {
+  margin: auto;
+  margin-top: 10px;
+  overflow: hidden;
+  width: 960px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: white;
+  .col1, .col2 {
+    float: left;
+    background-color: #d9c7b0;
+    h1 {
+      margin: 0;
+      border: 1px solid black;
+      background-color: #bda07e;
+    }
+
+    span {
+      display: block;
+      padding: 0 45px;
+      line-height: 35px;
+      text-align: center;
+      border: 1px solid black;
+      cursor: pointer;
+      background: url("./../images/arrow-right.png") 95% center no-repeat;
+      background-size: 20px;
+    }
+    .selected {
+      background-color: #f8bc6f;
+    }
+  }
+
+  .col2 {
+    float: left;
+    margin-top: 47px;
+    .selected {
+      background-color: #fff;
+    }
+  }
+
+  .col3 {
+    float: left;
+    overflow: hidden;
+    padding-top: 47px;
+    width: 440px;
+    span {
+      float: left;
+      padding: 5px 10px;
+      margin: 6px;
+      cursor: pointer;
+      &:hover {
+        background: #dededa;
+        border-radius: 10px;
+      }
+      &.selected {
+        background: #dededa;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.patient-search-dialog-content {
+  border: 1px solid #000;
+  font-size: 20px;
+  .doctor-title {
+    line-height: 30px;
+    border-bottom: 1px solid #000;
+  }
+  .doctor-content {
+    height: 100px;
+    border-bottom: 1px solid #000;
+
+    .button {
+      float: right;
+      margin-top: 60px;
+      line-height: 20px;
+      button {
+        margin-left: 10px;
+        border: none;
+        font-size: 20px;
+        color: #337ab7;
+      }
+    }
+  }
+  .table {
+    padding: 20px 0;
+    height: 304px;
+    overflow: auto;
+    table {
+      width: 100%;
+      border: 1px solid #eee;
+      th {
+        font-size: 22px;
+        line-height: 30px;
+        color: #337ab7;
+        text-align: left;
+        width: 15%;
+      }
+      th:first-child {
+        width: 10%;
+      }
+      th, td {
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        text-indent: 10px;
+      }
+      td {
+        line-height: 40px;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      .tsearch {
+        td {
+          padding: 5px;
+        }
+        input {
+          display: block;
+          width: 98%;
+          height: 30px;
+          border-radius: 5px;
+          border: 1px solid #eee;
+          text-indent: 5px;
+          font-size: 20px;
+        }
+      }
+
+      tbody tr {
+        cursor: pointer;
+        &:nth-child(even) {
+          background: #f9f9f9;
+        }
+      }
+    }
+  }
+}
+
+.disease-dialog-content {
+  position: relative;
+  padding: 24px 60px;
+  height: 500px;
+  .icon {
+    display: block;
+    content: '';
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 200px;
+    cursor: pointer;
+  }
+  .left-icon {
+    left: 5px;
+    background: url("./../../assets/images/Left-arrow.png") center center no-repeat;
+    background-size: 50px;
+  }
+  .right-icon {
+    right: 5px;
+    background: url("./../../assets/images/Right-arrow.png") center center no-repeat;
+    background-size: 50px;
+  }
+  .scroll-content {
+    overflow-x: auto;
+  }
+  .content-columns {
+    -webkit-transition: margin-left .5s;
+    -moz-transition: margin-left .5s;
+    -mz-transition: margin-left .5s;
+    transition: margin-left .5s;
+  }
+  .column {
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .checkbox-item {
+    line-height: 30px;
+    text-indent: 30px;
+    background: url("./../../assets/images/check-box-outline-blank.png") left 5px no-repeat;
+    background-size: 24px;
+    white-space: nowrap;
+    cursor: pointer;
+    &.selected {
+      background: url("./../../assets/images/checkbox-line.png") left center no-repeat;
+      background-size: 24px;
+    }
+  }
+}
+.disease_top_text {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  font-size: 12px;
+}
+.disease_bottom_text {
+  position: absolute;
+  left: 60px;
+  bottom: 37px;
+  width: 80%;
+  height: 17px;
+  text-align: center;
+  z-index: 10;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.co-symptoms {
+  margin: 20px auto;
+  width: 960px;
+  .header {
+    text-align: center;
+    height: 50px;
+    line-height: 36px;
+    font-size: 24px;
+    button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 10px;
+      background: #e4b4b4;
+      font-size: 20px;
+      &.left {
+        float: left;
+      }
+      &.right {
+        float: right;
+      }
+    }
+  }
+  .content {
+    position: relative;
+    padding: 20px 30px 40px;
+    height: 400px;
+    background: #fff;
+    border: 1px solid #000;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -mz-box-sizing: border-box;
+    box-sizing: border-box;
+    .item {
+      position: relative;
+      display: inline-block;
+      padding: 20px 20px;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 24px;
+      i {
+        position: absolute;
+        top: 6px;
+        right: 4px;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url("./../../assets/images/cc-close-circle.png") right top no-repeat;
+        background-size: 20px;
+        cursor: pointer;
+      }
+    }
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      width: 900px;
+      button {
+        line-height: 30px;
+        font-size: 16px;
+        border: none;
+        background: #fff;
+        cursor: pointer;
+      }
+      .right {
+        float: right;
+      }
+    }
+  }
+}

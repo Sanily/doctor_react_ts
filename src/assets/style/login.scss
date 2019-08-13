@@ -1,0 +1,135 @@
+.pg-login {
+  position: absolute;
+  left: 50%;
+  transform: translate(-450px, 50px);
+  font-family: STKaiti;
+
+  .content {
+    display: flex;
+    align-items: center;
+  }
+
+  .introduce {
+    margin-right: 50px;
+    width: 500px;
+    h1 {
+      margin: 0;
+      line-height: 60px;
+      font-size: 38px;
+      text-align: center;
+      letter-spacing: 5px;
+    }
+    .item {
+      font-size: 20px;
+      text-indent: 40px;
+      line-height: 36px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .login-form {
+    padding: 30px 40px;
+    width: 325px;
+    height: 453px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    text-align: center;
+
+    .item {
+      margin-bottom: 20px;
+      overflow: hidden;
+      .label, .input, button {
+        float: left;
+        display: block;
+        height: 34px;
+        border: 1px solid #bababa;
+        box-sizing: border-box;
+      }
+
+      .label {
+        width: 34px;
+        background-color: #f0f0f0;
+        text-align: center;
+        line-height: 34px;
+        img {
+          margin-top: 6px;
+        }
+      }
+
+      .input {
+        margin-left: -1px;
+        text-indent: 5px;
+
+        &.mobile-phone {
+          width: 210px;
+        }
+        &.sms-code {
+          width: 120px;
+        }
+        &.image-code {
+          width: 80px;
+        }
+      }
+
+      .sms-button {
+        margin-left: -1px;
+        width: 90px;
+        background-color: #f0f0f0;
+        font-size: 14px;
+        color: #999;
+        cursor: pointer;
+      }
+
+      .image-label {
+        width: 60px;
+        border: none;
+        background: none;
+        font-size: 14px;
+      }
+
+      .image {
+        //margin-left: 20px;
+        height: 34px;
+        cursor: pointer;
+      }
+    }
+
+    .login-button {
+      width: 251px;
+      height: 32px;
+      background-color: #5c5a56;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: 10px;
+    }
+
+    .qr-code {
+      margin-top: 20px;
+    }
+
+    .qr-text {
+      font-size: 18px;
+    }
+  }
+
+  .nav {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    li {
+      width: 143px;
+      height: 20px;
+      line-height: 20px;
+      border-right: 2px solid #000;
+      text-align: center;
+      &.last {
+        border: none;
+      }
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+}
