@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { MyDialog } from "./../MyDialog";
+import { MyDialog } from "../../components/MyDialog";
 import '../../assets/style/doctor.scss';
 import Api from './../../api';
 

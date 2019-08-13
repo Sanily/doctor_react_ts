@@ -20,7 +20,6 @@ interface IForm {
 //患者信息
 interface IProp {
     patient: IForm,
-    disease: any,
     readOnly: boolean,
     togglePatientDialogVisible: any
 }
@@ -175,34 +174,26 @@ export class PatientForm extends Component <IProp, IForm> {
                              setQuery={this.setQuery}
                              blur={this.updatePatient} />
                 <span className="short-label">岁</span>
-                {
-                    this.props.disease &&
-                    this.props.disease.disease_name &&
-                    this.props.disease.disease_name.includes('小儿') && (
-                        <div className="inline-block">
-                            <RenderInput defaultValue={patient.patient_month}
-                                         value={patient_month}
-                                         name="patient_month"
-                                         type="select"
-                                         options={this.monthOptions}
-                                         className="short_input"
-                                         readOnly={readOnly}
-                                         setQuery={this.setQuery}
-                                         blur={this.updatePatient} />
-                            <span className="short-label">月</span>
-                            <RenderInput defaultValue={patient.patient_day}
-                                         value={patient_day}
-                                         name="patient_day"
-                                         type="select"
-                                         options={this.dayOptions}
-                                         className="short_input"
-                                         readOnly={readOnly}
-                                         setQuery={this.setQuery}
-                                         blur={this.updatePatient} />
-                            <span className="short-label">天</span>
-                        </div>
-                    )
-                }
+                <RenderInput defaultValue={patient.patient_month}
+                             value={patient_month}
+                             name="patient_month"
+                             type="select"
+                             options={this.monthOptions}
+                             className="short_input"
+                             readOnly={readOnly}
+                             setQuery={this.setQuery}
+                             blur={this.updatePatient} />
+                <span className="short-label">月</span>
+                <RenderInput defaultValue={patient.patient_day}
+                             value={patient_day}
+                             name="patient_day"
+                             type="select"
+                             options={this.dayOptions}
+                             className="short_input"
+                             readOnly={readOnly}
+                             setQuery={this.setQuery}
+                             blur={this.updatePatient} />
+                <span className="short-label">天</span>
                 <br/>
                 <label className="label" htmlFor="patient_is_married">婚姻：</label>
                 <RenderInput defaultValue={patient.patient_is_married}

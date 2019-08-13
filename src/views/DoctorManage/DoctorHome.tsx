@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import '../../assets/style/doctor.scss';
-import { DiseaseCascade } from "../../components/DoctorManage/DiseaseCascade";
-import { PatientForm } from "../../components/DoctorManage/PatientForm";
-import { PatientSearchDialog } from "../../components/DoctorManage/PatientSearchDialog";
-import { DiseaseDialog } from "../../components/DoctorManage/DiseaseDialog";
-import { Symptoms } from "../../components/DoctorManage/Symptoms";
-import { ExpertDialog } from "../../components/DoctorManage/ExpertDialog";
+import { DiseaseCascade } from "./DiseaseCascade";
+import { PatientForm } from "./PatientForm";
+import { PatientSearchDialog } from "./PatientSearchDialog";
+import { DiseaseDialog } from "./DiseaseDialog";
+import { Symptoms } from "./Symptoms";
+import { ExpertDialog } from "./ExpertDialog";
 import store from './../../store';
 import Message from './../../components/Message';
 
@@ -97,7 +97,6 @@ export class DoctorHome extends Component <Patient, State> {
                 <div className="title">医生主页</div>
                 {/*患者表单*/}
                 <PatientForm patient={doctor.patient}
-                             disease={doctor.disease}
                              readOnly={doctor.readOnly}
                              togglePatientDialogVisible={this.togglePatientDialogVisible} />
 

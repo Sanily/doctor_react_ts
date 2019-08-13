@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './../../assets/style/index.scss';
+import '../../assets/style/index.scss';
 import './../../assets/style/doctor.scss';
-import { MyDialog } from "./../MyDialog";
+import { MyDialog } from "../../components/MyDialog";
 import Api from './../../api';
 import store from './../../store';
 import { savePatientData } from './../../store/actions/doctor-action';
