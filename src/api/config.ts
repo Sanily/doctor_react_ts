@@ -1,3 +1,3 @@
 export default {
-    baseUrl: 'http://zhierkang.kirisamenana.com'
+    baseUrl: 'http://zhierkang.kirisamenana.com:8000'
 }

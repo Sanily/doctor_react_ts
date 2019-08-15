@@ -18,7 +18,6 @@ interface Query {
     patient_age: string,
     patient_contact: string,
     patient_address: string,
-    // patient_nation_id: string,
     patient_gender: string
 }
 
@@ -37,7 +36,6 @@ export class PatientSearchDialog extends Component <IProp, IState> {
                 patient_age: '',
                 patient_contact: '',
                 patient_address: '',
-                // patient_nation_id: '',
                 patient_gender: ''
             },
             patient: []
@@ -48,10 +46,23 @@ export class PatientSearchDialog extends Component <IProp, IState> {
         this.patientQuery();
     }
 
+    filterOptions = (options: string[]) => {
+        return options.map((item, index) => ({
+            label: item || index.toString(), value: index.toString()
+        }));
+    }
+
+    filterGender = (patient_gender: string) => {
+        return this.genderOptions.filter(item => item.value === patient_gender.toString())[0].label;
+    };
+
+    genderOptions = this.filterOptions(['男', '女', '中性', '不祥']);
+
     patientQuery () {
         Api.patient_query(this.state.query).then((res: any) => {
+            let patients = res.data.patients;
             this.setState({
-                patient: res.data.patients
+                patient: patients
             });
         })
     }
@@ -74,7 +85,6 @@ export class PatientSearchDialog extends Component <IProp, IState> {
             patient_age,
             patient_contact,
             patient_address,
-            // patient_nation_id: '',
             patient_gender
         }, patient} = this.state;
         return (
@@ -142,7 +152,7 @@ export class PatientSearchDialog extends Component <IProp, IState> {
                                             <td>{ item.patient_serial }</td>
                                             <td>{ item.patient_name }</td>
                                             <td>{ item.patient_telephone }</td>
-                                            <td>{ item.patient_gender }</td>
+                                            <td>{ this.filterGender(item.patient_gender) }</td>
                                             <td>{ item.patient_age }</td>
                                             <td>{ item.patient_address }</td>
                                         </tr>

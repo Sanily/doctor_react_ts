@@ -17,8 +17,6 @@ interface IProp {
 }
 
 interface IState {
-    top_text: string,
-    bottom_text: string,
     symptoms: Item[],
     data: Item[]
 }
@@ -39,9 +37,7 @@ export class DiseaseDialog extends Component <IProp, IState> {
         super(props);
         this.state = {
             symptoms: [],
-            data: [],
-            top_text: '',
-            bottom_text: ''
+            data: []
         };
         this.disease = this.props.doctor.disease;
         this.ref = React.createRef();
@@ -71,9 +67,7 @@ export class DiseaseDialog extends Component <IProp, IState> {
                 list[Math.floor(index / 15)].push(item);
             });
             this.setState({
-                symptoms: list,
-                top_text: res.top_text,
-                bottom_text: res.bottom_text
+                symptoms: list
             });
             store.dispatch(saveAllSymptoms(list));
         });
@@ -105,12 +99,11 @@ export class DiseaseDialog extends Component <IProp, IState> {
     };
 
     render() {
-        const { symptoms, top_text, bottom_text } = this.state;
+        const { symptoms } = this.state;
         return (
             <MyDialog toggle={() => { this.props.toggleDiseaseDialogVisible(); }}>
                 <div className="header">
                     <div className="title">{ this.disease.disease_name }</div>
-                    <div className="disease_top_text">{ top_text }</div>
                 </div>
                 <div className="content disease-dialog-content">
                     <i className="icon left-icon" onClick={() => {this.togglePage(1)}}></i>
@@ -139,7 +132,6 @@ export class DiseaseDialog extends Component <IProp, IState> {
                     </div>
                 </div>
                 <div className="footer">
-                    <div className="disease_bottom_text" title={bottom_text}>{ bottom_text }</div>
                     <button className="confirm-btn" onClick={this.submit}>确定提交</button>
                 </div>
             </MyDialog>

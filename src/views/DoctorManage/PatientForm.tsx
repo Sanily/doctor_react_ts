@@ -50,7 +50,7 @@ export class RenderInput extends Component <Input>{
                 }} disabled={readOnly}>
                     {
                         options.map(item => (
-                            <option key={item} value={item} selected={defaultValue === item}>{item}</option>
+                            <option key={item.value} value={item.value} selected={defaultValue === item.value.toString()}>{item.label}</option>
                         ))
                     }
                 </select>
@@ -80,14 +80,14 @@ export class PatientForm extends Component <IProp, IForm> {
         this.state = {
             patient_serial: '',
             patient_name: '',
-            patient_age: '',
+            patient_age: '1',
             patient_month: '0',
             patient_day: '0',
             patient_telephone: '',
             patient_address: '',
-            patient_nation_id: '汉族',
-            patient_gender: '男',
-            patient_is_married: '未婚'
+            patient_nation_id: '0',
+            patient_gender: '0',
+            patient_is_married: '0'
         };
     }
 
@@ -116,12 +116,18 @@ export class PatientForm extends Component <IProp, IForm> {
         });
     };
 
-    ageOptions = new Array(99).fill('').map((_, index) => index + 1);
-    monthOptions = new Array(12).fill('').map((_, index) => index);
-    dayOptions = new Array(31).fill('').map((_, index) => index);
-    marryOptions = ['未婚', '已婚', '未知'];
-    genderOptions = ['男', '女', '中性', '不祥'];
-    nationOptions = ['汉族','壮族','满族','回族','苗族','维吾尔族','土家族','彝族','蒙古族','藏族','布依族','侗族','瑶族','朝鲜族','白族','哈尼族','哈萨克族','黎族','傣族','畲族','傈僳族','仡佬族','东乡族','高山族','拉祜族','水族','佤族','纳西族','羌族','土族','仫佬族','锡伯族','柯尔克孜族','达斡尔族','景颇族','毛南族','撒拉族','布朗族','塔吉克族','阿昌族','普米族','鄂温克族','怒族','京族','基诺族','德昂族','保安族','俄罗斯族','裕固族','乌孜别克族','门巴族','鄂伦春族','独龙族','塔塔尔族','赫哲族','珞巴族'];
+    filterOptions = (options: string[]) => {
+        return options.map((item, index) => ({
+            label: item || index.toString(), value: index.toString()
+        }));
+    };
+
+    ageOptions = this.filterOptions(new Array(100).fill(''));
+    monthOptions = this.filterOptions(new Array(12).fill(''));
+    dayOptions = this.filterOptions(new Array(31).fill(''));
+    marryOptions = this.filterOptions(['未婚', '已婚', '未知']);
+    genderOptions = this.filterOptions(['男', '女', '中性', '不祥']);
+    nationOptions = this.filterOptions(['汉族','壮族','满族','回族','苗族','维吾尔族','土家族','彝族','蒙古族','藏族','布依族','侗族','瑶族','朝鲜族','白族','哈尼族','哈萨克族','黎族','傣族','畲族','傈僳族','仡佬族','东乡族','高山族','拉祜族','水族','佤族','纳西族','羌族','土族','仫佬族','锡伯族','柯尔克孜族','达斡尔族','景颇族','毛南族','撒拉族','布朗族','塔吉克族','阿昌族','普米族','鄂温克族','怒族','京族','基诺族','德昂族','保安族','俄罗斯族','裕固族','乌孜别克族','门巴族','鄂伦春族','独龙族','塔塔尔族','赫哲族','珞巴族']);
 
     render() {
         let {
@@ -164,7 +170,7 @@ export class PatientForm extends Component <IProp, IForm> {
                              setQuery={this.setQuery}
                              blur={this.updatePatient} />
                 <label className="label" htmlFor="patient_age">年龄：</label>
-                <RenderInput defaultValue={patient.patient_age}
+                <RenderInput defaultValue={patient.patient_age || '1'}
                              value={patient_age}
                              name="patient_age"
                              type="select"
